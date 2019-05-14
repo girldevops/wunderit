@@ -4,7 +4,7 @@
 
     <groupId>org.devops.wunderit</groupId>
     <artifactId>wunderit</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>Modern Java RPC stack using Jetty+Jersey+Jackson+MessagePack (from https://github.com/making/msgpack-rpc-jersey-blank)</name>
@@ -154,6 +154,7 @@
         <connection>scm:git:https://github.com/girldevops/wunderit.git</connection>
         <url>https://github.com/girldevops/wunderit</url>
         <developerConnection>scm:git:https://github.com/girldevops/wunderit.git</developerConnection>
-    </scm>
+      <tag>demo</tag>
+  </scm>
 
 </project>
