@@ -33,13 +33,15 @@ pipeline {
         stage ('Docker build') {
              steps {
                   echo 'mvn clean package docker:build'
-                   sh 'mvn clean package docker:build'
+                 // ignore spotify dockerfile-maven  
+                 //  sh 'mvn clean package docker:build'
              }
         }
         stage ('Release') {
               steps {
                    echo 'mvn clean package docker:build'
-                   sh 'mvn release:clean release:prepare'
+                  // ignore plugin maven-releas
+                  // sh 'mvn release:clean release:prepare'
                     }
         }
     }
