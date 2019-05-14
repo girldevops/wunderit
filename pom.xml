@@ -115,7 +115,11 @@
             </plugin>
         </plugins>
     </build>
-    <reporting>
-
-  </reporting>
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>nexus</name>
+            <url>http://localhost:8081/nexus/</url>
+        </repository>
+    </distributionManagement>
 </project>

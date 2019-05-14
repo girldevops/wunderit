@@ -19,14 +19,14 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                echo 'lanch junit test '
+                echo 'lunch junit test '
                 sh 'mvn test '
             }
         }
-        stage ('Build') {
+        stage ('Deploy') {
             steps {
-                echo 'This is a minimal pipeline.'
-                //sh 'mvn clean install'
+                echo 'download dependencies to nexus '
+                sh 'mvn clean deploy'
             }
         }
     }
