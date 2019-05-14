@@ -30,5 +30,17 @@ pipeline {
                 sh 'mvn clean deploy'
             }
         }
+        stage ('Docker build') {
+             steps {
+                  echo 'mvn clean package docker:build'
+                   sh 'mvn clean package docker:build'
+             }
+        }
+        stage ('Release') {
+              steps {
+                   echo 'mvn clean package docker:build'
+                   sh 'mvn release:clean release:prepare'
+                    }
+        }
     }
 }
