@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        //be sure to replace "willbla" with your own Docker Hub username
+        DOCKER_IMAGE_NAME = "spring/wunderit"
+    }
     tools {
         maven 'Maven 3.6.1'
         jdk 'jdk8'
@@ -43,6 +47,20 @@ pipeline {
                   // ignore plugin maven-releas
                   // sh 'mvn release:clean release:prepare'
                     }
+        }
+        stage('DeployToProduction') {
+            when {
+                branch 'master'
+            }
+            steps {
+                input 'Deploy to Production?'
+                milestone(1)
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig',
+                    configs: 'deploy.yml',
+                    enableConfigSubstitution: true
+                )
+            }
         }
     }
 }
