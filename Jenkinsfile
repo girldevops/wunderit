@@ -27,21 +27,20 @@ pipeline {
         stage ('Deploy') {
             steps {
                 echo 'download dependencies to nexus '
-             //   sh 'mvn clean deploy'
+                sh 'mvn clean deploy'
             }
         }
         stage ('Docker build') {
              steps {
                   echo 'mvn clean package docker:build'
                  // ignore spotify dockerfile-maven  
-                 //  sh 'mvn clean package docker:build'
+                  sh 'mvn clean package dockerfile:build'
              }
         }
          stage ('Docker push nexus') {
                      steps {
                           echo 'push image to nexus '
-                           sh 'docker tag dockerimage/wunderit 192.168.0.10:8083/wunderit:1'
-                           sh 'docker push 192.168.0.10:8083/wunderit:1'
+                           sh 'mvn dockerfile:push '
 
                      }
                 }
