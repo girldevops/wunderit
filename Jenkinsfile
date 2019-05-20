@@ -27,7 +27,7 @@ pipeline {
         stage ('Deploy') {
             steps {
                 echo 'download dependencies to nexus '
-                sh 'mvn clean deploy'
+             //   sh 'mvn clean deploy'
             }
         }
         stage ('Docker build') {
