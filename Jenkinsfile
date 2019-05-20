@@ -37,6 +37,14 @@ pipeline {
                  //  sh 'mvn clean package docker:build'
              }
         }
+         stage ('Docker push nexus') {
+                     steps {
+                          echo 'push image to nexus '
+                           sh 'docker tag dockerimage/wunderit 192.168.0.10:8083/wunderit:1'
+                           sh 'docker push 192.168.0.10:8083/wunderit:1'
+
+                     }
+                }
         stage ('Release') {
               steps {
                    echo 'mvn clean package docker:build'

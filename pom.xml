@@ -130,14 +130,16 @@
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
-        </plugins>
-        <extensions>
-            <extension>
+            <plugin>
                 <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-extension</artifactId>
-                <version>1.4.8</version>
-            </extension>
-        </extensions>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.9</version>
+                <configuration>
+                    <repository>dockerimage/${project.artifactId}</repository>
+                </configuration>
+            </plugin>
+        </plugins>
+
     </build>
     <distributionManagement>
         <repository>
