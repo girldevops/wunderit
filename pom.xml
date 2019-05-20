@@ -134,8 +134,19 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.9</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <repository>dockerimage/${project.artifactId}</repository>
+                    <repository> 192.168.0.10:8083/wunderit</repository>
+                    <tag>${project.version}</tag>
+
                 </configuration>
             </plugin>
         </plugins>
