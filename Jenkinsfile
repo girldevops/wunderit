@@ -34,6 +34,7 @@ pipeline {
              steps {
                   echo 'mvn clean package docker:build'
                  // ignore spotify dockerfile-maven  
+                  sh '/usr/local/bin/docker login -u admin -p admin123 192.168.0.10:8083 '
                   sh 'mvn clean package dockerfile:build'
              }
         }
