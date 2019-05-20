@@ -15,19 +15,19 @@ pipeline {
         stage ('Check') {
             steps {
                 echo 'Check PMD violations'
-                sh 'mvn pmd:check '
+              //  sh 'mvn pmd:check '
             }
         }
         stage ('Test') {
             steps {
                 echo 'lunch junit test '
-                sh 'mvn test '
+              //  sh 'mvn test '
             }
         }
         stage ('Deploy') {
             steps {
                 echo 'download dependencies to nexus '
-                sh 'mvn clean deploy'
+             //   sh 'mvn clean deploy'
             }
         }
         stage ('Docker build') {
